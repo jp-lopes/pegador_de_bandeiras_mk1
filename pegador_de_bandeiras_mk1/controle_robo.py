@@ -88,6 +88,7 @@ class ControleRobo(Node):
         self.junta_garra_esquerda = 0.0
         self.junta_dedo_esquerdo = 0.0
         self.junta_dedo_direito = 0.0
+        self.rotacao = 0.0
         self.bandeira_capturada = False
 
         self.estado_atual = Estados.EXPLORANDO
@@ -172,14 +173,14 @@ class ControleRobo(Node):
     def estender_garra(self):
         msg = Float64MultiArray()
         self.extensão_garra = 0.32
-        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito]
+        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito, self.rotacao]
         self.gripper_pub.publish(msg)
         time.sleep(4) # Espera 4 segundos para executar ação
 
     def retrair_garra(self):
         msg = Float64MultiArray()
         self.extensão_garra = 0.0
-        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito]
+        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito, self.rotacao]
         self.gripper_pub.publish(msg)
         time.sleep(4) # Espera 4 segundos para executar ação
 
@@ -189,7 +190,7 @@ class ControleRobo(Node):
         self.junta_garra_esquerda = 0.5
         self.junta_dedo_esquerdo = -0.4
         self.junta_dedo_direito = -0.4
-        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito]
+        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito, self.rotacao]
         self.gripper_pub.publish(msg)
         time.sleep(4) # Espera 4 segundos para executar ação
 
@@ -199,7 +200,14 @@ class ControleRobo(Node):
         self.junta_garra_esquerda = 0.3
         self.junta_dedo_esquerdo = -0.8
         self.junta_dedo_direito = -0.8
-        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito]
+        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito, self.rotacao]
+        self.gripper_pub.publish(msg)
+        time.sleep(4) # Espera 4 segundos para executar ação
+
+    def rotacionar_garra(self):
+        msg = Float64MultiArray()
+        self.rotacao = 0.3
+        msg.data = [self.extensão_garra, self.junta_garra_direita, self.junta_garra_esquerda, self.junta_dedo_esquerdo, self.junta_dedo_direito, self.rotacao]
         self.gripper_pub.publish(msg)
         time.sleep(4) # Espera 4 segundos para executar ação
 
@@ -338,6 +346,7 @@ class ControleRobo(Node):
                 elif garra_estendida:
                     self.get_logger().info("Retraindo garra...")
                     self.retrair_garra()
+                    self.rotacionar_garra()
                     self.get_logger().info("Bandeira capturada com sucesso! Retornando para a base")
                     self.estado_atual = Estados.RETORNANDO_PARA_BASE
 

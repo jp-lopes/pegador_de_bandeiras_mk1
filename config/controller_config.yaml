@@ -19,6 +19,7 @@ gripper_controller:
       - left_gripper_joint
       - left_tip_joint
       - right_tip_joint
+      - gear_joint
 
 diff_drive_base_controller:
   ros__parameters:
