@@ -9,7 +9,7 @@ services:
       - QT_X11_NO_MITSHM=1
 
     volumes:
-      - ..:/home/user/ros2_ws/src/pegador_de_bandeiras_mk1
+      - ..:/home/user/ros2_ws/src/pegador_de_bandeiras_mk2
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${HOME}/.Xauthority:/home/user/.Xauthority:rw
 

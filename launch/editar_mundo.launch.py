@@ -14,7 +14,7 @@ def generate_launch_description():
 
     world_file = LaunchConfiguration('world')
 
-    pkg_share = FindPackageShare("pegador_de_bandeiras_mk1").find("pegador_de_bandeiras_mk1")
+    pkg_share = FindPackageShare("pegador_de_bandeiras_mk2").find("pegador_de_bandeiras_mk2")
 
     world_path = PathJoinSubstitution([
         pkg_share,

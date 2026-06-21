@@ -36,9 +36,9 @@ def generate_launch_description():
         description='Nome do arquivo .sdf do mundo a ser carregado'
     )
 
-    # Encontra o diretório de instalação do pacote 'pegador_de_bandeiras_mk1'.
-    pkg_share = FindPackageShare("pegador_de_bandeiras_mk1").find(
-        "pegador_de_bandeiras_mk1")
+    # Encontra o diretório de instalação do pacote 'pegador_de_bandeiras_mk2'.
+    pkg_share = FindPackageShare("pegador_de_bandeiras_mk2").find(
+        "pegador_de_bandeiras_mk2")
 
     # Nome do arquivo do mundo (SDF) a ser carregado
 

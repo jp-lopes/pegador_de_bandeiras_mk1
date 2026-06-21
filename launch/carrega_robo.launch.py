@@ -17,10 +17,10 @@ def generate_launch_description():
     # Caminho para o arquivo Xacro do robô
     # ------------------------------------------------------
     # Constrói o caminho absoluto para o arquivo `robot.urdf.xacro`,
-    # localizado na pasta `description` do pacote `pegador_de_bandeiras_mk1`.
+    # localizado na pasta `description` do pacote `pegador_de_bandeiras_mk2`.
     urdf_path = PathJoinSubstitution([
-        # Diretório do pacote `pegador_de_bandeiras_mk1`
-        FindPackageShare("pegador_de_bandeiras_mk1"),
+        # Diretório do pacote `pegador_de_bandeiras_mk2`
+        FindPackageShare("pegador_de_bandeiras_mk2"),
         "description",                   # Subpasta onde está o modelo
         "robot.urdf.xacro"               # Nome do arquivo Xacro
     ])
@@ -38,7 +38,7 @@ def generate_launch_description():
     # Publica as transformações dos links do robô com base no URDF.
     # Requer o parâmetro 'robot_description' com o conteúdo do modelo.
     diff_drive_params = PathJoinSubstitution([
-        FindPackageShare("pegador_de_bandeiras_mk1"),
+        FindPackageShare("pegador_de_bandeiras_mk2"),
         "config",
         "controller_config.yaml"
     ])
@@ -122,9 +122,9 @@ def generate_launch_description():
     # ------------------------------------------------------
     # RViz: visualização do robô
     # ------------------------------------------------------
-    # Carrega o arquivo de configuração do RViz a partir do pacote `pegador_de_bandeiras_mk1`.
+    # Carrega o arquivo de configuração do RViz a partir do pacote `pegador_de_bandeiras_mk2`.
     rviz_config_file = PathJoinSubstitution([
-        FindPackageShare("pegador_de_bandeiras_mk1"),
+        FindPackageShare("pegador_de_bandeiras_mk2"),
         "rviz",
         "rviz_config.rviz"
     ])
@@ -207,7 +207,7 @@ def generate_launch_description():
 
 #  Nodo que publica odometria ground truth
     odom_gt = Node(
-        package="pegador_de_bandeiras_mk1",
+        package="pegador_de_bandeiras_mk2",
         executable="ground_truth_odometry",
         name="odom_gt",
         arguments="",
@@ -216,7 +216,7 @@ def generate_launch_description():
 
 #  Nodo que publica o mapa
     robo_mapper = Node(
-        package="pegador_de_bandeiras_mk1",
+        package="pegador_de_bandeiras_mk2",
         executable="robo_mapper",
         name="robo_mapper",
         arguments="",
@@ -226,7 +226,7 @@ def generate_launch_description():
 #  Casos vocês queiram carregar o controle do robô junto:
 #  Não esquecer de descomentar a linha no LaunchDescription
 #    controle= Node(
-#        package="pegador_de_bandeiras_mk1",
+#        package="pegador_de_bandeiras_mk2",
 #        executable="controle_robo",
 #        name="controle_do_robo",
 #        arguments="",

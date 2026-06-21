@@ -15,7 +15,7 @@ Este projeto é um robô móvel autônomo capaz de se deslocar em uma arena com 
 - CAPTURANDO_BANDEIRA: ainda não implementado.
 
 Diagrama de Estados:
-![Diagrama de Estados](https://github.com/jp-lopes/pegador_de_bandeiras/blob/pegador_de_bandeiras_mk1/Diagrama_de_estados.png)
+![Diagrama de Estados](https://github.com/jp-lopes/pegador_de_bandeiras/blob/pegador_de_bandeiras_mk2/Diagrama_de_estados.png)
 
 Arquivos para apresentação na feira de extensão:
 - [pôster](https://docs.google.com/presentation/d/1d3UxarLUDG2wu3aqnuSmSDFOD7z9jMMMoiP7K6U-u2s/edit?slide=id.p#slide=id.p)
@@ -32,7 +32,7 @@ Arquivos para apresentação na feira de extensão:
 1. Acessar a pasta `src` do seu workspace ROS2 Humble e clonar o repositório:
     ```bash 
     cd ~/ros2_ws/src
-    git clone -b pegador_de_bandeiras_mk1 https://github.com/jp-lopes/pegador_de_bandeiras.git pegador_de_bandeiras_mk1
+    git clone -b pegador_de_bandeiras_mk2 https://github.com/jp-lopes/pegador_de_bandeiras.git pegador_de_bandeiras_mk2
     ```
 2. Instalar dependências com `rosdep`:
     ```bash 
@@ -50,30 +50,30 @@ Arquivos para apresentação na feira de extensão:
 4. Iniciar a simulação do Gazebo:
     ```bash 
     source install/setup.bash
-    ros2 launch pegador_de_bandeiras_mk1 inicia_simulacao.launch.py
+    ros2 launch pegador_de_bandeiras_mk2 inicia_simulacao.launch.py
     ```
 5. Abrir mais dois terminais:
 - No primeiro, carregar o robô na simulação:
     ```bash 
     cd ~/ros2_ws
     source install/setup.bash
-    ros2 launch pegador_de_bandeiras_mk1 carrega_robo.launch.py
+    ros2 launch pegador_de_bandeiras_mk2 carrega_robo.launch.py
     ```
 - No segundo, iniciar o controle autonômo do robô:
     ```bash 
     cd ~/ros2_ws
     source install/setup.bash
-    ros2 run pegador_de_bandeiras_mk1 controle_robo
+    ros2 run pegador_de_bandeiras_mk2 controle_robo
     ```
 ## Instruções para execução com Docker
 1. Acessar a pasta `src` do seu workspace ROS2 Humble e clonar o repositório:
     ```bash 
     cd ~/ros2_ws/src
-    git clone -b pegador_de_bandeiras_mk1 https://github.com/jp-lopes/pegador_de_bandeiras.git pegador_de_bandeiras_mk1
+    git clone -b pegador_de_bandeiras_mk2 https://github.com/jp-lopes/pegador_de_bandeiras.git pegador_de_bandeiras_mk2
     ```
 2. Garantir permissões gráficas e iniciar container:
     ```bash 
-    cd pegador_de_bandeiras_mk1/docker
+    cd pegador_de_bandeiras_mk2/docker
     xhost +local:root
     docker compose up -d
     ```
@@ -85,16 +85,16 @@ Arquivos para apresentação na feira de extensão:
     ```
 4. Iniciar simulação:
     ```bash 
-    ros2 launch pegador_de_bandeiras_mk1 inicia_simulacao.launch.py
+    ros2 launch pegador_de_bandeiras_mk2 inicia_simulacao.launch.py
     ```
 5. Abrir mais dois terminais:
 - No primeiro, carregar robô na simulação:
     ```bash 
     docker exec -it ros2_humble_env bash
-    ros2 launch pegador_de_bandeiras_mk1 carrega_robo.launch.py
+    ros2 launch pegador_de_bandeiras_mk2 carrega_robo.launch.py
     ```
 - No segundo, iniciar o controle autonômo do robô:
     ```bash 
     docker exec -it ros2_humble_env bash
-    ros2 run pegador_de_bandeiras_mk1 controle_robo
+    ros2 run pegador_de_bandeiras_mk2 controle_robo
     ```

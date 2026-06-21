@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'pegador_de_bandeiras_mk1'
+package_name = 'pegador_de_bandeiras_mk2'
 
 
 def package_dir_tree(target_dir, base_install_path):
@@ -60,9 +60,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'controle_robo = pegador_de_bandeiras_mk1.controle_robo:main',
-            'robo_mapper = pegador_de_bandeiras_mk1.robo_mapper:main',
-            'ground_truth_odometry = pegador_de_bandeiras_mk1.ground_truth_odometry:main',
+            'controle_robo = pegador_de_bandeiras_mk2.controle_robo:main',
+            'robo_mapper = pegador_de_bandeiras_mk2.robo_mapper:main',
+            'ground_truth_odometry = pegador_de_bandeiras_mk2.ground_truth_odometry:main',
         ],
     },
 )

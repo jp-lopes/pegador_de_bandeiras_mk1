@@ -14,7 +14,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     urdf_path = PathJoinSubstitution([
-        FindPackageShare("pegador_de_bandeiras_mk1"),         # Diretório do pacote `pegador_de_bandeiras_mk1`
+        FindPackageShare("pegador_de_bandeiras_mk2"),         # Diretório do pacote `pegador_de_bandeiras_mk2`
         "description",                   # Subpasta onde está o modelo
         "robot.urdf.xacro"               # Nome do arquivo Xacro
     ])
@@ -37,7 +37,7 @@ def generate_launch_description():
     ))
 
     rviz_config_file = PathJoinSubstitution([
-        FindPackageShare("pegador_de_bandeiras_mk1"),
+        FindPackageShare("pegador_de_bandeiras_mk2"),
         "rviz",
         "urdf.rviz"
     ])
